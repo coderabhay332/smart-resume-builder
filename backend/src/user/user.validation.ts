@@ -40,3 +40,14 @@ export const editUser = [
     body('active').isBoolean().withMessage('active must be a boolean'),
     body('password').isString().withMessage('Password must be a string'),
 ];
+
+export const changePassword = checkExact([
+    body('oldPassword').notEmpty().withMessage('Old password is required').isString().withMessage('Old password must be a string'),
+    body('newPassword').notEmpty().withMessage('New password is required').isString().withMessage('New password must be a string'),
+    body('confirmPassword').custom((value, { req }) => {
+        if (value !== req.body.newPassword) {
+            throw new Error('Password confirmation does not match new password');
+        }
+        return true;
+    })
+]);
