@@ -25,7 +25,7 @@ jobs:
           context: .
           file: ./Dockerfile
           push: true
-          tags: ${{ secrets.DOCKER_USERNAME }}/resume-builder-backend:latest
+          tags: ${{ secrets.DOCKER_USERNAME }}/resume-builder-backend
           
       - name: verify pushed image
-        run: docker pull ${{ secrets.DOCKER_USERNAME }}/resume-builder-backend:latest
+        run: docker pull ${{ secrets.DOCKER_USERNAME }}/resume-builder-backend
