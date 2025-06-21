@@ -157,7 +157,7 @@ export default function LoginForm() {
               <p className="text-gray-600">
                 Don&apos;t have an account?{" "}
                 <NavLink
-                  to="/signup"
+                  to="/register"
                   className="text-[#4285f4] font-medium hover:underline"
                 >
                   Create one
